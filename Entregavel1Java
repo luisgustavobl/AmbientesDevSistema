@@ -1,0 +1,118 @@
+import java.util.Scanner;
+
+public class Somatorio {
+    Scanner prompt = new Scanner(System.in);
+    public void iniciarSoma(){
+        System.out.println("-------------------------------------");
+        System.out.println("Calculadora de Soma");
+        System.out.println("Digite quantos termos deseja somar");
+        int n = prompt.nextInt();
+        int valorTotal = 0;
+        int valorAtual = 0;
+        for (int i = 1; i <= n; i++){
+            System.out.println("Digite o "+i+"° termo");
+            valorAtual = prompt.nextInt();
+            valorTotal = valorTotal + valorAtual;
+        }
+        System.out.println("O valor total é: "+ valorTotal);
+    }
+}
+
+
+import java.util.Scanner;
+
+public class Primo {
+    Scanner prompt = new Scanner(System.in);
+    boolean primo = true;
+    public void checarPrimo(){
+        System.out.println("-------------------------------------");
+        System.out.println("Verificação de primo");
+        System.out.println("Digite o número maior que 1 para verificar se é primo");
+        int n = prompt.nextInt();
+        if(n > 1){
+            for(int i = 2; i < n; i++){
+                if(n % i == 0){
+                    primo = false;
+                }
+            }
+            if(primo){
+                System.out.println("O número digitado é primo.");
+            }else{
+                System.out.println("O número digitado não é primo.");
+            }
+        }
+        else {
+            System.out.println("Digite um número válido,");
+        }
+    }
+}
+
+
+
+
+import java.util.Scanner;
+
+public class CalculadoraMDC {
+    Scanner prompt = new Scanner(System.in);
+
+    public void calcularMDC() {
+        System.out.println("-------------------------------------");
+        System.out.println("Calculadora de MDC");
+        System.out.println("Digite o valor de a.");
+        int a = prompt.nextInt();
+        System.out.println("Digite o valor de b.");
+        int b = prompt.nextInt();
+        int aux = 0;
+        int aInicial = a;
+        int bInicial = b;
+        while(b != 0){
+            aux = b;
+            b = a % b;
+            a = aux;
+        }
+        System.out.println("O MDC de "+aInicial+" e "+bInicial+" é "+aux);
+    }
+}
+
+
+
+import java.util.Scanner;
+
+public class Fibonacci {
+    Scanner prompt = new Scanner(System.in);
+    public void sequenciaFibonacci() {
+        System.out.println("-------------------------------------");
+        System.out.println("Tabela Fibonacci");
+        System.out.println("Digite a posição da tabela de Fibonacci que deseja saber o valor");
+        int posicao = prompt.nextInt();
+        int n1 = 0, n2 = 1, valorAnterior = 0;
+        for (int i = 0; i <= posicao; i++) {
+            if (i == posicao) {
+                System.out.println("Valor na posição da tabela é:" + n1);
+            }
+            valorAnterior = n1 + n2;
+            n1 = n2;
+            n2 = valorAnterior;
+        }
+    }
+}
+
+
+
+MAIN:
+
+public class Principal {
+    static void main() {
+   /*     Fibonacci t = new Fibonacci();
+        t.sequenciaFibonacci();
+
+        CalculadoraMDC b = new CalculadoraMDC();
+        b.calcularMDC();
+
+        Somatorio a =  new Somatorio();
+        a.iniciarSoma();
+        */
+        Primo p = new Primo();
+        p.checarPrimo();
+    }
+}

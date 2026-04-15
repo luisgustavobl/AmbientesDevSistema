@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Verificador de Número Primo em Java (simulado com JS)</title>
+</head>
+<body>
+    <h1>Verificador de Número Primo</h1>
+    
+    <label for="numero">Digite um número inteiro positivo:</label>
+    <input type="number" id="numero">
+    <button id="verificar">Verificar</button>
+    
+    <p id="resultado"></p>
+
+    <script>
+        function checarPrimo(numero) {
+            if (numero <= 1) {
+                return false;
+            }
+            for (let i = 2; i * i <= numero; i++) {
+                if (numero % i === 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        document.getElementById('verificar').addEventListener('click', function() {
+            const numeroInput = document.getElementById('numero');
+            const resultadoP = document.getElementById('resultado');
+            const numero = parseInt(numeroInput.value, 10);
+
+            if (checarPrimo(numero)) {
+                resultadoP.textContent = `O número ${numero} é um número primo.`;
+            } else {
+                resultadoP.textContent = `O número ${numero} não é um número primo.`;
+            }
+        });
+    </script>
+    <br>
+    <p><a href="javascript.html" rel="prev">Voltar para segunda página</a></p>
+</body>
+</html>
